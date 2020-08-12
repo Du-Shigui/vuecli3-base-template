@@ -1,0 +1,42 @@
+const webpack = require("webpack");
+const path = require("path");
+
+function resolve(dir) {
+	return path.join(__dirname, dir);
+}
+
+module.exports = {
+	publicPath: "/",
+	outputDir: "dist",
+	devServer: {
+		port: 8090,
+	},
+	chainWebpack: (config) => {
+		config.resolve.alias
+			.set("components", resolve("src/components"))
+			.set("views", resolve("src/views"))
+			.set("common", resolve("src/common"));
+	},
+	configureWebpack: (config) => {
+		if (process.env.NODE_ENV === "production") {
+			config.optimization.minimizer[0].options.terserOptions.compress.drop_console = true;
+      }
+      config.plugins.push(
+			new webpack.ProvidePlugin({
+				$: "jquery",
+				jQuery: "jquery",
+				"window.jQuery": "jquery",
+				Popper: ["popper.js", "default"],
+			})
+		);
+	},
+};
+
+function addStyleResource(rule) {
+	rule
+		.use("style-resource")
+		.loader("style-resources-loader")
+		.options({
+			patterns: [path.resolve(__dirname, "./src/common/stylus/index.styl")],
+		});
+}

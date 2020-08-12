@@ -1,0 +1,6 @@
+// Make sure the functions come before custom variables
+@import "~bootstrap/scss/_functions";
+// Our custom variables file
+@import "./variables";
+// The bootstrap file that compiles the CSS
+@import "~bootstrap/scss/bootstrap";
