@@ -3,13 +3,17 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
+// import "bootstrap/dist/css/bootstrap.css"
 // 引入 Bootstrap & jQuery
+import 'bootstrap';
 import "@/styles/custom-bootstrap.scss"
 import "jquery"
 // 引入 vue-meta
 import VueMeta from "vue-meta"
-
 Vue.use(VueMeta)
+
+// import { setRemInit } from "@/utils/rem";
+// setRemInit(); //进行初始化立即运行
 
 Vue.config.productionTip = false
 

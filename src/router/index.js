@@ -1,38 +1,54 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-import { metaInfo } from "@/utils/const";
+import {
+	metaInfo
+} from "@/utils/const";
 
+function loadView(view) {
+	return () => import(`views/${view}`)
+}
 
 Vue.use(VueRouter)
 
-  const routes = [
-		{
-			path: "/",
-			name: "Home",
-			component: Home,
-			meta: {
-				metaInfo: {
-					...metaInfo,
-					title: "云于天 | 首页",
-				},
+const routes = [
+	{ path: "/", redirect: "/home" },
+	{
+		path: "/home",
+		name: "Home",
+		component: loadView("Home"),
+		meta: {
+			metaInfo: {
+				...metaInfo,
+				title: "云于天 | 首页",
 			},
 		},
-		{
-			path: "/about",
-			name: "About",
-			// route level code-splitting
-			// this generates a separate chunk (about.[hash].js) for this route
-			// which is lazy-loaded when the route is visited.
-			component: () =>
-				import(/* webpackChunkName: "about" */ "../views/About.vue"),
-		},
-  ];
+	},
+	{
+		path: "/project",
+		name: "Project",
+		component: loadView("Project"),
+	},
+	{
+		path: "/product",
+		name: "Product",
+		component: loadView("Product"),
+	},
+	{
+		path: "/about",
+		name: "About",
+		component: loadView("About"),
+	},
+	{
+		path: "/resources",
+		name: "Resources",
+		component: loadView("Resources"),
+	},
+];
 
 const router = new VueRouter({
-  mode: 'history',
-  base: process.env.BASE_URL,
-  routes
+	mode: 'history',
+	base: process.env.BASE_URL,
+	routes
 })
 
 export default router
