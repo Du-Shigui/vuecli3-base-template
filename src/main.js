@@ -12,6 +12,23 @@ import "jquery"
 import VueMeta from "vue-meta"
 Vue.use(VueMeta)
 
+// 引入进度条组件
+import VueProgressBar from "vue-progressbar";
+
+Vue.use(VueProgressBar, {
+	color: "rgb(143, 255, 199)",
+	failedColor: "red",
+	height: "2px",
+});
+
+// 引入toast组件
+import Toasted from "vue-toasted";
+Vue.use(Toasted, {
+	position: "top-center",
+	duration: 2000,
+	iconPack: "material",
+});
+
 // import { setRemInit } from "@/utils/rem";
 // setRemInit(); //进行初始化立即运行
 
@@ -23,16 +40,18 @@ router.beforeEach((to, from, next) => {
 	next();
 });
 
-new Vue({
-  router,
-  data: {
-    title: "云于天",
-    titleTemplate: "%s | 构建商家与消费者共赢的智慧生活圈",
-    keywords: "餐饮,管理,智能",
-    description: "构建商家与消费者共赢的智慧生活圈",
-  },
-  metaInfo() {
-    return {
+const vm = new Vue({
+	router,
+	data() {
+		return {
+			title: "云于天",
+			titleTemplate: "%s | 构建商家与消费者共赢的智慧生活圈",
+			keywords: "餐饮,管理,智能",
+			description: "构建商家与消费者共赢的智慧生活圈",
+		};
+	},
+	metaInfo() {
+		return {
 			title: this.$store.state.metaInfo.title,
 			meta: [
 				{
@@ -45,7 +64,10 @@ new Vue({
 				},
 			],
 		};
-  },
-  store,
-  render: (h) => h(App),
+	},
+	store,
+	render: (h) => h(App),
+	...App,
 }).$mount("#app");
+
+export default vm;

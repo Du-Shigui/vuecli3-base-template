@@ -23,8 +23,9 @@
 
 <script>
   // @ is an alias to /src
- import Navbar from 'components/common/Navbar'
- import OurProducts from 'components/common/OurProducts'
+  import Navbar from 'components/common/Navbar'
+  import OurProducts from 'components/common/OurProducts'
+  import DemoStudentTe from '@/service/Demo/DemoStudentTeAppService.js';
 
   export default {
     name: 'Home',
@@ -34,7 +35,22 @@
     },
     data() {
       return {
+        // 请求远程参数
+        queryPage: {
+          pageIndex: 1,
+          pageSize: 5,
+          order: 'createTime desc',
+          studentName: '',
+          className: '',
+          isAppend: true // 控制是滚动底部刷新 还是上拉加载
+        },
       }
     },
+    async mounted() {
+      await DemoStudentTe.GetViewPage(this.queryPage);
+    },
+    methods: {
+
+    }
   }
 </script>

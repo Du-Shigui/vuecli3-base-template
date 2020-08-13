@@ -9,6 +9,8 @@
     </div> -->
     <router-view/>
     <footer-bottom></footer-bottom>
+    <!-- 网络加载进度条 -->
+    <vue-progress-bar></vue-progress-bar>
   </div>
 </template>
 
