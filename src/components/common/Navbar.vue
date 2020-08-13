@@ -11,19 +11,20 @@
          </button>
          <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto text-center">
-               <li class="nav-item" :class="{ 'active': navIndex === idx, 'dropdown': item.children }"
+               <li class="nav-item" :class="{ 'active': curRouteName === item.name || $route.path.includes(item.name), 'dropdown': item.children }"
                   v-for="(item, idx) in navbarArr" :key="idx">
-                  <router-link v-if="!item.children" :to="item.path" class="nav-link">
+                  <router-link v-if="!item.children" :to="{ name: item.name }" class="nav-link">
                      {{ item.title }}
                   </router-link>
                   <template v-else>
-                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown">
+                     <router-link :to="{ name: item.name }" class="nav-link" id="navbarDropdownMenuLink" data-toggle="dropdown">
                         {{ item.title }}
-                     </a>
-                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                     </router-link>
+                     <div class="dropdown-menu mt-0">
                         <router-link class="dropdown-item"
+                           :class="{ 'active': curRouteName === subItem.name }"
                            v-for="(subItem, index) in item.children" :key="index"
-                           :to="item.path + subItem.path"
+                           :to="{ name: subItem.name }"
                         >{{ subItem.title }}</router-link>
                      </div>
                   </template>
@@ -36,47 +37,52 @@
 </template>
 
 <script>
+import store from '@/store';
    export default {
       name: 'Navbar',
+      computed: {
+         curRouteName() {
+            return this.$store.state.curRouteName
+         }
+      },
       data() {
          return {
             logoSrc: 'https://pic.cwyyt.cn/upload/20200813/081108118_yyt_logo.png',
             navbarArr: [{
                   title: '首页',
-                  path: '/'
+                  name: 'home'
                },
                {
                   title: '方案',
-                  path: '/project'
+                  name: 'project'
                },
                {
                   title: '产品',
-                  path: '/product',
+                  name: 'product',
                   children: [{
                      title: '预定管理',
-                     path: '/reserve'
+                     name: 'reserve'
                   }, {
                      title: '客户管理',
-                     path: '/customer'
+                     name: 'customer'
                   }, {
                      title: '宴会管理',
-                     path: '/banquet'
+                     name: 'banquet'
                   }, {
                      title: '营销管理',
-                     path: '/marketing'
+                     name: 'marketing'
                   }]
                },
                {
                   title: '关于我们',
-                  path: '/about',
+                  name: 'about',
 
                },
                {
                   title: '资源',
-                  path: '/resources'
+                  name: 'resources'
                },
             ],
-            navIndex: 0,
          }
       },
       mounted() {

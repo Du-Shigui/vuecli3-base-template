@@ -19,7 +19,7 @@ Vue.config.productionTip = false
 
 // 配置每个页面的meta标签
 router.beforeEach((to, from, next) => {
-	if (to.meta.metaInfo) store.commit("CAHNGE_META_INFO", to.meta.metaInfo);
+	if (to.meta.metaInfo) store.commit("CHANGE_META_INFO", to.meta.metaInfo);
 	next();
 });
 

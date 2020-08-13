@@ -6,15 +6,19 @@ Vue.use(Vuex)
 
 const state = {
 	metaInfo,
+	curRouteName: 'home', // 当前路由名称
 };
 
 const mutations = {
-	CAHNGE_META_INFO(state, metaInfo) {
+	CHANGE_META_INFO(state, metaInfo) {
 		state.metaInfo = {
 			...state.metaInfo,
 			...metaInfo
 		};
 	},
+	CHANGE_CUR_ROUTE_NAME(state, curRouteName) {
+		state.curRouteName = curRouteName;
+	}
 };
 
 export default new Vuex.Store({
