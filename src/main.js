@@ -3,8 +3,8 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
-// import "bootstrap/dist/css/bootstrap.css"
 // 引入 Bootstrap & jQuery
+// import "bootstrap/dist/css/bootstrap.css"
 import 'bootstrap';
 import "@/styles/custom-bootstrap.scss"
 import "jquery"
@@ -14,9 +14,8 @@ Vue.use(VueMeta)
 
 // 引入进度条组件
 import VueProgressBar from "vue-progressbar";
-
 Vue.use(VueProgressBar, {
-	color: "rgb(143, 255, 199)",
+	color: "#0084F9",
 	failedColor: "red",
 	height: "2px",
 });
@@ -44,15 +43,9 @@ Vue.component('icon-svg', IconSvg);
 
 
 // import { setRemInit } from "@/utils/rem";
-// setRemInit(); //进行初始化立即运行
+// setRemInit(); //rem布局
 
 Vue.config.productionTip = false
-
-// 配置每个页面的meta标签
-router.beforeEach((to, from, next) => {
-	if (to.meta.metaInfo) store.commit("CHANGE_META_INFO", to.meta.metaInfo);
-	next();
-});
 
 const vm = new Vue({
 	router,

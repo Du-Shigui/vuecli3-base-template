@@ -6,7 +6,7 @@ import {
 } from "@/utils/const";
 
 function loadView(view) {
-	return () => import(`views/${view}`)
+	return () => import(`@/views/${view}`)
 }
 
 Vue.use(VueRouter)
@@ -31,11 +31,23 @@ const routes = [
 		path: "/project",
 		name: "project",
 		component: loadView("Project"),
+		meta: {
+			metaInfo: {
+				...metaInfo,
+				title: "云于天 | 项目",
+			},
+		},
 	},
 	{
 		path: "/product",
 		name: "product",
 		component: loadView("Product"),
+		meta: {
+			metaInfo: {
+				...metaInfo,
+				title: "云于天 | 产品",
+			},
+		},
 		children: [
 			{ path: "", component: loadView("Product") },
 			{
@@ -64,11 +76,23 @@ const routes = [
 		path: "/about",
 		name: "about",
 		component: loadView("About"),
+		meta: {
+			metaInfo: {
+				...metaInfo,
+				title: "云于天 | 关于我们",
+			},
+		},
 	},
 	{
-		path: "/resources",
-		name: "resources",
-		component: loadView("Resources"),
+		path: "/news",
+		name: "news",
+		component: loadView("News"),
+		meta: {
+			metaInfo: {
+				...metaInfo,
+				title: "云于天 | 资讯",
+			},
+		},
 	},
 ];
 
@@ -79,17 +103,11 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
-	console.log(to.name);
+	// 设置页面meta标签信息
+	if (to.meta.metaInfo) store.commit("CHANGE_META_INFO", to.meta.metaInfo);
+	// 监听路由，改变当前导航栏高亮状态
 	store.commit("CHANGE_CUR_ROUTE_NAME", to.name);
 	next();
-	// const isLogin = !Array.isArray(storage.get("fe-token"));
-	// console.log(isLogin);
-	// // 个人中心需要登录
-	// if (to.name === "Member") {
-	// 	isLogin ? next() : next("/login");
-	// } else {
-	// 	next();
-	// }
 });
 
 export default router

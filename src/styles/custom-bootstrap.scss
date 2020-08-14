@@ -1,8 +1,8 @@
-// Make sure the functions come before custom variables
+// fucntion得在 variables 之前
 @import "~bootstrap/scss/_functions";
-// Our custom variables file
+// 自定义变量（node_modules/bootstrap/scss/_variables.scss 拷贝而来）
 @import "./variables";
-// The bootstrap file that compiles the CSS
+// 用 bootstrap 进行编译
 @import "~bootstrap/scss/bootstrap";
 
 // 把bootstrap4 dropdown 的导航下拉菜单触发方式改为鼠标浮动触发
@@ -16,13 +16,4 @@
 
 .dropdown>.dropdown-toggle:active {
    pointer-events: none;
-}
-
-// iconfont
-.icon {
-   width: 1em;
-   height: 1em;
-   vertical-align: -0.15em;
-   fill: currentColor;
-   overflow: hidden;
 }

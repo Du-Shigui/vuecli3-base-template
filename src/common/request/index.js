@@ -1,9 +1,7 @@
 import axios from "axios";
 import appConfig from "@/common/config/config";
 import qs from "qs";
-import router from "@/router";
 import storage from "@/common/storage";
-import store from "@/store";
 import context from "@/main.js";
 import util from "@/utils";
 
@@ -182,8 +180,6 @@ const Request = async (option) => {
 function swRequest(options) {
    return new Promise((resolve, reject) => {
       const instance = axios.create({
-         // baseURL: api.domain,
-         // headers: {},
          ...config,
          ...options,
       });
@@ -247,7 +243,6 @@ function swRequest(options) {
             // 	}
             // 	Toast.fail(error.response.data.message);
             // }
-
             return Promise.reject(error);
          }
       );

@@ -6,7 +6,7 @@ function resolve(dir) {
 }
 
 module.exports = {
-	publicPath: "",
+	publicPath: "/",
 	outputDir: "dist",
 	assetsDir: "",
 	devServer: {
@@ -52,12 +52,3 @@ module.exports = {
 		},
 	},
 };
-
-function addStyleResource(rule) {
-	rule
-		.use("style-resource")
-		.loader("style-resources-loader")
-		.options({
-			patterns: [path.resolve(__dirname, "./src/common/stylus/index.styl")],
-		});
-}

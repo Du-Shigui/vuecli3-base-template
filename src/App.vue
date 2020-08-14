@@ -3,10 +3,6 @@
     <!-- ========================= 导航栏 START ========================= -->
     <navbar></navbar>
     <!-- ========================= 导航栏 END ========================= -->
-    <!-- <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div> -->
     <router-view/>
     <footer-bottom></footer-bottom>
     <!-- 网络加载进度条 -->

@@ -79,8 +79,8 @@
 
                },
                {
-                  title: '资源',
-                  name: 'resources'
+                  title: '资讯',
+                  name: 'news'
                },
             ],
          }
