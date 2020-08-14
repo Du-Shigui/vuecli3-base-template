@@ -7,6 +7,7 @@ import store from "@/store";
 import context from "@/main.js";
 import util from "@/utils";
 
+// 网络请求url
 let api = {
    domain: appConfig.domain,
    addomain: appConfig.addomain,
@@ -14,6 +15,7 @@ let api = {
    Authorization: "",
 };
 
+// axios配置项
 let config = {
    // url前缀
    baseURL: appConfig.domain,
@@ -31,6 +33,7 @@ let config = {
    responseType: "json",
 };
 
+// token获取
 const getToken = async () => {
    const userInfo = storage.getToken();
    let userNameOrEmailAddress = "Test";
@@ -63,6 +66,7 @@ const getToken = async () => {
    }
 };
 
+// 验证token
 const verifyToken = async () => {
    let res = storage.getToken();
    if (res) {
@@ -77,6 +81,7 @@ const verifyToken = async () => {
    }
 };
 
+// 网络请求封装
 const Request = async (option) => {
    let requestApi = async () => {
       if (!option.isObj) {
@@ -137,21 +142,21 @@ const Request = async (option) => {
             errorMsg;
 
          context.$toasted.show("提示信息: " + errorMsg, {
-            // icon: {
-            // 	name: "check",
-            // },
-            type: "error",
-         });
+				icon: {
+					name: "fa fa-exclamation", // icon见main.js
+				},
+				type: "error",
+			});
 
          // 有错误信息就返回空
          return null;
       } else {
          // context.$toasted.show("提示信息: " + errorMsg, {
-         //    // icon: {
-         //    // 	name: "check",
-         //    // },
-         //    type: "error",
-         // });
+			// 	icon: {
+			// 		name: "fa fa-exclamation",
+			// 	},
+			// 	type: "error",
+			// });
       }
 
       let result = rdata.data;

@@ -2,7 +2,7 @@
    <nav class="navbar navbar-expand-md navbar-light bg-white fixed-top">
       <div class="container d-flex">
          <a class="logo-wrapper d-flex justify-content-center align-items-center" href="#">
-            <img :src="logoSrc" class="logo" alt="云于天LOGO">
+            <icon-svg class="logo" icon-class="icon-yunyutianlogo1" />
             <div class="split-line"></div>
             <div class="sub-title">智能数据管理服务</div>
          </a>
@@ -11,21 +11,21 @@
          </button>
          <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto text-center">
-               <li class="nav-item" :class="{ 'active': curRouteName === item.name || $route.path.includes(item.name), 'dropdown': item.children }"
+               <li class="nav-item"
+                  :class="{ 'active': curRouteName === item.name || $route.path.includes(item.name), 'dropdown': item.children }"
                   v-for="(item, idx) in navbarArr" :key="idx">
                   <router-link v-if="!item.children" :to="{ name: item.name }" class="nav-link">
                      {{ item.title }}
                   </router-link>
                   <template v-else>
-                     <router-link :to="{ name: item.name }" class="nav-link" id="navbarDropdownMenuLink" data-toggle="dropdown">
+                     <router-link :to="{ name: item.name }" class="nav-link" id="navbarDropdownMenuLink"
+                        data-toggle="dropdown">
                         {{ item.title }}
                      </router-link>
                      <div class="dropdown-menu mt-0">
-                        <router-link class="dropdown-item"
-                           :class="{ 'active': curRouteName === subItem.name }"
-                           v-for="(subItem, index) in item.children" :key="index"
-                           :to="{ name: subItem.name }"
-                        >{{ subItem.title }}</router-link>
+                        <router-link class="dropdown-item" :class="{ 'active': curRouteName === subItem.name }"
+                           v-for="(subItem, index) in item.children" :key="index" :to="{ name: subItem.name }">
+                           {{ subItem.title }}</router-link>
                      </div>
                   </template>
                </li>
@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import store from '@/store';
+   import store from '@/store';
    export default {
       name: 'Navbar',
       computed: {
@@ -103,8 +103,9 @@ import store from '@/store';
       // logo
       .logo-wrapper {
          .logo {
-            width: 80px;
-            height: 37px;
+            // width: 80px;
+            // height: 37px;
+            font-size: 40px;
          }
 
          .split-line {
@@ -116,11 +117,8 @@ import store from '@/store';
          }
 
          .sub-title {
-            font-size: 20px;
-            font-family: PingFang SC;
             font-weight: bold;
             color: rgba(51, 133, 255, 1);
-            line-height: 20px;
          }
       }
 

@@ -22,12 +22,26 @@ Vue.use(VueProgressBar, {
 });
 
 // 引入toast组件
+// github：https://github.com/shakee93/vue-toasted
 import Toasted from "vue-toasted";
 Vue.use(Toasted, {
 	position: "top-center",
 	duration: 2000,
-	iconPack: "material",
+	iconPack: "custom-class",
 });
+
+// 引入 fontawesome 字体
+// website: https://fontawesome.com/icons?d=gallery&m=free
+// format：<i class="fa fa-times"></i>
+// 常用：
+// 感叹号：fa fa-exclamation
+// 错误： fa fa-times
+import "font-awesome/css/font-awesome.min.css";
+
+// 自定义全局组件
+import IconSvg from '@/components/common/IconSvg.vue';
+Vue.component('icon-svg', IconSvg);
+
 
 // import { setRemInit } from "@/utils/rem";
 // setRemInit(); //进行初始化立即运行
