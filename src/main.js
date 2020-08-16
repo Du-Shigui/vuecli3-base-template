@@ -8,6 +8,12 @@ import store from './store'
 import 'bootstrap';
 import "@/styles/custom-bootstrap.scss"
 import "jquery"
+
+// 引入 BootstrapVue
+import BootstrapVue from "bootstrap-vue";
+import "bootstrap-vue/dist/bootstrap-vue.css";
+Vue.use(BootstrapVue);
+
 // 引入 vue-meta
 import VueMeta from "vue-meta"
 Vue.use(VueMeta)
@@ -60,8 +66,7 @@ const vm = new Vue({
 	metaInfo() {
 		return {
 			title: this.$store.state.metaInfo.title,
-			meta: [
-				{
+			meta: [{
 					name: "keywords",
 					content: this.$store.state.metaInfo.keywords,
 				},

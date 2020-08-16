@@ -41,7 +41,7 @@ module.exports = {
 						rootValue: 16, //换算基数， 默认100  ，这样的话把根标签的字体规定为1rem为50px,这样就可以从设计稿上量出多少个px直接在代码中写多上px了。
 						// unitPrecision: 3, //允许REM单位增长到的十进制数字,小数点后保留的位数。
 						// propList: ["*", "!font-size"],
-						propList: ["*", "!font-size"],
+						propList: ["*"],
 						exclude: /(node_module)/, //默认false，可以（reg）利用正则表达式排除某些文件夹的方法，例如/(node_module)/ 。如果想把前端UI框架内的px也转换成rem，请把此属性设为默认值
 						// selectorBlackList: [".radius"], //要忽略并保留为px的选择器
 						// mediaQuery: false, //（布尔值）允许在媒体查询中转换px。

@@ -3,7 +3,7 @@
     <!-- ========================= 导航栏 START ========================= -->
     <navbar></navbar>
     <!-- ========================= 导航栏 END ========================= -->
-    <router-view/>
+    <router-view />
     <footer-bottom></footer-bottom>
     <!-- 网络加载进度条 -->
     <vue-progress-bar></vue-progress-bar>
@@ -11,8 +11,8 @@
 </template>
 
 <script>
- import Navbar from 'components/common/Navbar'
- import FooterBottom from 'components/common/FooterBottom'
+  import Navbar from 'components/common/Navbar'
+  import FooterBottom from 'components/common/FooterBottom'
   export default {
     name: 'App',
     components: {
@@ -23,9 +23,9 @@
 </script>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+  #app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 </style>

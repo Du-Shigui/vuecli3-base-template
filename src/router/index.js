@@ -49,7 +49,7 @@ const routes = [
 			},
 		},
 		children: [
-			{ path: "", component: loadView("Product") },
+			// { path: "", component: loadView("Product") },
 			{
 				path: "reserve",
 				name: "reserve",

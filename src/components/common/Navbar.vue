@@ -1,39 +1,47 @@
 <template>
-   <nav class="navbar navbar-expand-md navbar-light bg-white fixed-top">
-      <div class="container d-flex">
-         <a class="logo-wrapper d-flex justify-content-center align-items-center" href="#">
+   <b-navbar class="navbar" toggleable="md" type="light" variant="light" fixed="top">
+      <!-- fluid="xl" 最大1200宽度，用来设置版心 -->
+      <b-container class="container" fluid="xl">
+         <b-navbar-brand :to="{ name: 'home' }" class="logo-wrapper d-flex justify-content-center align-items-center">
             <icon-svg class="logo" icon-class="icon-yunyutianlogo1" />
             <div class="split-line"></div>
             <div class="sub-title">智能数据管理服务</div>
-         </a>
-         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-         </button>
-         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto text-center">
-               <li class="nav-item"
-                  :class="{ 'active': curRouteName === item.name || $route.path.includes(item.name), 'dropdown': item.children }"
-                  v-for="(item, idx) in navbarArr" :key="idx">
-                  <router-link v-if="!item.children" :to="{ name: item.name }" class="nav-link">
-                     {{ item.title }}
-                  </router-link>
-                  <template v-else>
-                     <router-link :to="{ name: item.name }" class="nav-link" id="navbarDropdownMenuLink"
-                        data-toggle="dropdown">
-                        {{ item.title }}
-                     </router-link>
-                     <div class="dropdown-menu mt-0">
-                        <router-link class="dropdown-item" :class="{ 'active': curRouteName === subItem.name }"
-                           v-for="(subItem, index) in item.children" :key="index" :to="{ name: subItem.name }">
-                           {{ subItem.title }}</router-link>
-                     </div>
-                  </template>
-               </li>
-            </ul>
-         </div>
-      </div>
+         </b-navbar-brand>
 
-   </nav>
+         <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+
+         <b-collapse id="nav-collapse" is-nav>
+            <!-- Right aligned nav items -->
+            <b-navbar-nav class="ml-auto" align="center">
+               <template v-for="(item, idx) in navbarArr">
+                  <b-nav-item class="nav-item" :key="idx"
+                     :class="{ 'active': curRouteName === item.name || $route.path.includes(item.name) }"
+                     v-if="!item.children" :to="{ name: item.name }">
+                     {{ item.title }}
+                  </b-nav-item>
+                  <b-nav-item-dropdown class="nav-item" :text="item.title"
+                     :class="{ 'active': curRouteName === item.name || $route.path.includes(item.name) }" :key="idx"
+                     v-else right>
+                     <!-- Using 'button-content' slot -->
+                     <!-- <template v-slot:button-content>
+                        <b-link
+                        :class="{ 'active': curRouteName === item.name }"
+                        @click.native="gotoNav(subItem)">{{item.title}}</b-link>
+                     </template> -->
+                     <b-dropdown-item :class="{ 'active': curRouteName === subItem.name }"
+                        v-for="(subItem, index) in item.children" :key="index" :to="{ name: subItem.name }">
+                        {{ subItem.title }}
+                     </b-dropdown-item>
+                     <b-dropdown-divider></b-dropdown-divider>
+                     <b-dropdown-item :class="{ 'active': curRouteName === 'product' }" :to="{ name: item.name }">
+                        所有产品
+                     </b-dropdown-item>
+                  </b-nav-item-dropdown>
+               </template>
+            </b-navbar-nav>
+         </b-collapse>
+      </b-container>
+   </b-navbar>
 </template>
 
 <script>
@@ -93,19 +101,30 @@
          onResize() {
             $("body").css("padding-top", $(".navbar").outerHeight());
          },
+         // 去某个路由页面
+         gotoNav(item) {
+            this.$router.push({
+               name: item.name
+            });
+         }
       }
    }
 </script>
 
 <style lang="scss" scoped>
+   .navbar {
+      background: white !important;
+      box-shadow: 0 1px 20px 0 rgba(46,61,73,.2);
+   }
+
    .container {
 
       // logo
       .logo-wrapper {
          .logo {
-            // width: 80px;
-            // height: 37px;
-            font-size: 40px;
+            width: 80px;
+            height: 37px;
+            font-size: 60px;
          }
 
          .split-line {
@@ -117,6 +136,7 @@
          }
 
          .sub-title {
+            font-size: 20px;
             font-weight: bold;
             color: rgba(51, 133, 255, 1);
          }
@@ -126,28 +146,44 @@
       .collapse {
          .navbar-nav {
             .nav-item {
+               text-align: center;
                position: relative;
 
                >.nav-link {
                   color: #333333;
                }
 
+               &.active,
                &.active>.nav-link {
-                  color: #3385FF;
+                  // color: #3385FF;
 
                   &::after {
                      position: absolute;
                      content: "";
-                     left: 0;
+                     left: 50%;
                      right: 0;
                      bottom: 0;
                      height: 2px;
                      background-color: #3385FF;
-                     transform: scaleX(0.5);
+                     width: 20px;
+                     transform: translateX(-50%);
+                  }
+               }
+
+               & /deep/ .dropdown-menu {
+                  .active {
+                     .dropdown-item {
+                        color: #3385FF !important;
+                     }
                   }
                }
             }
          }
       }
+   }
+
+   // 高亮文字
+   .container /deep/ .navbar-nav .active>.nav-link {
+      color: #3385FF !important;
    }
 </style>
