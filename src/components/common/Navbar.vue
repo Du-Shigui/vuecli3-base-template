@@ -1,7 +1,7 @@
 <template>
    <b-navbar class="navbar" toggleable="md" type="light" variant="light" fixed="top">
       <!-- fluid="xl" 最大1200宽度，用来设置版心 -->
-      <b-container class="container" fluid="xl">
+      <b-container class="container">
          <b-navbar-brand :to="{ name: 'home' }" class="logo-wrapper d-flex justify-content-center align-items-center">
             <icon-svg class="logo" icon-class="icon-yunyutianlogo1" />
             <div class="split-line"></div>

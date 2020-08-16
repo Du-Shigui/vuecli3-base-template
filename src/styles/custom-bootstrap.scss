@@ -4,16 +4,3 @@
 @import "./variables";
 // 用 bootstrap 进行编译
 @import "~bootstrap/scss/bootstrap";
-
-// 把bootstrap4 dropdown 的导航下拉菜单触发方式改为鼠标浮动触发
-// 修改完成后发现一个问题，菜单和文字间有一点空隙，鼠标移动到空隙后菜单就隐藏了。
-// 再修改 Navbar.vue dropdown-menu 的样式，加一个 mt-0 的样式就没有空隙了。
-// <div class="dropdown-menu mt-0"aria-labelledby="navbarDropdown">... </div>
-
-// .dropdown:hover>.dropdown-menu {
-//    display: block;
-// }
-
-// .dropdown>.dropdown-toggle:active {
-//    pointer-events: none;
-// }
