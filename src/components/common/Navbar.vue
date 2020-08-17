@@ -12,7 +12,7 @@
 
          <b-collapse id="nav-collapse" is-nav>
             <!-- Right aligned nav items -->
-            <b-navbar-nav class="ml-auto" align="center">
+            <b-navbar-nav class="ml-auto text-center">
                <template v-for="(item, idx) in navbarArr">
                   <b-nav-item class="nav-item" :key="idx"
                      :class="{ 'active': curRouteName === item.name || $route.path.includes(item.name) }"

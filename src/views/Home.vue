@@ -14,10 +14,8 @@
     <!-- ========================= 我们的客户 END ========================= -->
 
     <!-- ========================= 联系我们 START ========================= -->
+    <contact-us></contact-us>
     <!-- ========================= 联系我们 END ========================= -->
-
-    <!-- ========================= footer START ========================= -->
-    <!-- ========================= footer END ========================= -->
   </div>
 </template>
 
@@ -25,13 +23,15 @@
   // @ is an alias to /src
   import Navbar from 'components/common/Navbar'
   import OurProducts from 'components/common/OurProducts'
+  import ContactUs from 'components/common/ContactUs';
   import DemoStudentTe from '@/service/Demo/DemoStudentTeAppService.js';
 
   export default {
     name: 'Home',
     components: {
       Navbar,
-      OurProducts
+      OurProducts,
+      ContactUs
     },
     data() {
       return {

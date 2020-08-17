@@ -47,6 +47,13 @@ import "font-awesome/css/font-awesome.min.css";
 import IconSvg from '@/components/common/IconSvg.vue';
 Vue.component('icon-svg', IconSvg);
 
+// 自定义表单验证组件
+import SwForm from "@/components/common/swForm/swForm";
+import SwFormItem from "@/components/common/swForm/swFormItem";
+import SwInput from "@/components/common/swForm/swInput";
+Vue.component("sw-form", SwForm);
+Vue.component("sw-form-item", SwFormItem);
+Vue.component("sw-input", SwInput);
 
 // import { setRemInit } from "@/utils/rem";
 // setRemInit(); //rem布局
