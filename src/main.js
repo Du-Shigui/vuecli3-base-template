@@ -2,6 +2,11 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import moment from "@/lib/moment/moment.min.js";
+import storage from "@/common/storage/index.js";
+import utils from '@/utils';
+import * as filters from "@/common/filters";
+import appConfig from "@/common/config/config";
 
 // 引入 Bootstrap & jQuery
 // import "bootstrap/dist/css/bootstrap.css"
@@ -55,8 +60,24 @@ Vue.component("sw-form", SwForm);
 Vue.component("sw-form-item", SwFormItem);
 Vue.component("sw-input", SwInput);
 
-// import { setRemInit } from "@/utils/rem";
-// setRemInit(); //rem布局
+// 添加全局过滤器
+let filterObj = {}; // 全局filter obj
+Object.keys(filters).forEach(key => {
+	Vue.filter(key, filters[key]);
+	filterObj[key] = filters[key];
+});
+
+// 扩展vue原型属性
+prototypeEx(Vue);
+// 扩展Vue原型
+function prototypeEx(Vue) {
+	// vue prototype 扩展
+	Vue.prototype.$moment = moment; // 加入 moment使用
+	Vue.prototype.$storage = storage; // 用于存储
+	Vue.prototype.$utils = utils; // 帮助类
+	Vue.prototype.$filter = filterObj; // 全局过滤
+	Vue.prototype.$appConfig = appConfig; // app配置
+}
 
 Vue.config.productionTip = false
 

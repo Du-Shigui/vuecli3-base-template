@@ -1,7 +1,7 @@
 <template>
    <div class="contact-us bg-white mb-5">
       <b-container class="sw-conttainer">
-         <b-row align-h="center">
+         <b-row class="title-wrapper" align-h="center">
             <b-col class="text-center d-flex flex-column align-items-center mt-4 mb-5">
                <span class="title">联系我们</span>
                <span class="divider"></span>
@@ -145,6 +145,10 @@
          position: relative;
          z-index: 1;
 
+         .title-wrapper {
+            padding: 30px 0;
+         }
+
          .title {
             position: relative;
             font-size: 34px;
@@ -153,7 +157,7 @@
          }
 
          .divider {
-            width: 44px;
+            width: 30px;
             height: 3px;
             background: rgba(255, 255, 255, 1);
          }

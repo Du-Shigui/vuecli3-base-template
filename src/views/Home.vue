@@ -1,9 +1,12 @@
 <template>
   <div class="home">
     <!-- ========================= Banner START ========================= -->
+    <b-img :src="$appConfig.picdomain + '/upload/20200817/1455575557_homepage-banner.png'" fluid-grow alt="首页Banner图">
+    </b-img>
     <!-- ========================= Banner END ========================= -->
 
     <!-- ========================= 解决方案 START ========================= -->
+    <solution></solution>
     <!-- ========================= 解决方案 END ========================= -->
 
     <!-- ========================= 我们的产品 START ========================= -->
@@ -22,8 +25,9 @@
 <script>
   // @ is an alias to /src
   import Navbar from 'components/common/Navbar'
-  import OurProducts from 'components/common/OurProducts'
   import ContactUs from 'components/common/ContactUs';
+  import Solution from 'views/Home/Solution';
+  import OurProducts from 'views/Home/OurProducts';
   import DemoStudentTe from '@/service/Demo/DemoStudentTeAppService.js';
 
   export default {
@@ -31,7 +35,8 @@
     components: {
       Navbar,
       OurProducts,
-      ContactUs
+      ContactUs,
+      Solution
     },
     data() {
       return {
@@ -44,6 +49,7 @@
           className: '',
           isAppend: true // 控制是滚动底部刷新 还是上拉加载
         },
+        slide: 0, // banner idx
       }
     },
     async mounted() {
@@ -54,3 +60,7 @@
     }
   }
 </script>
+
+<style lang="scss" scoped>
+
+</style>
