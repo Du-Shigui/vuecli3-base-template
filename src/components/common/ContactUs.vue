@@ -3,8 +3,9 @@
       <b-container class="sw-conttainer">
          <b-row class="title-wrapper" align-h="center">
             <b-col class="text-center d-flex flex-column align-items-center mt-4 mb-5">
-               <span class="title">联系我们</span>
-               <span class="divider"></span>
+               <!-- <span class="title">联系我们</span>
+               <span class="divider"></span> -->
+               <sup-title title="联系我们" :light="true"></sup-title>
             </b-col>
          </b-row>
          <b-row align-h="center" class="sw-form-wrapper bg-white text-center">

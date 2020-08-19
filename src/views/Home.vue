@@ -14,6 +14,7 @@
     <!-- ========================= 我们的产品 END ========================= -->
 
     <!-- ========================= 我们的客户 START ========================= -->
+    <our-customer></our-customer>
     <!-- ========================= 我们的客户 END ========================= -->
 
     <!-- ========================= 联系我们 START ========================= -->
@@ -23,20 +24,21 @@
 </template>
 
 <script>
-  // @ is an alias to /src
-  import Navbar from 'components/common/Navbar'
-  import ContactUs from 'components/common/ContactUs';
+  // 组件
   import Solution from 'views/Home/Solution';
   import OurProducts from 'views/Home/OurProducts';
+  import OurCustomer from 'views/Home/OurCustomer';
+  import ContactUs from 'components/common/ContactUs';
+  // 接口
   import DemoStudentTe from '@/service/Demo/DemoStudentTeAppService.js';
 
   export default {
     name: 'Home',
     components: {
-      Navbar,
+      Solution,
       OurProducts,
+      OurCustomer,
       ContactUs,
-      Solution
     },
     data() {
       return {
@@ -49,7 +51,6 @@
           className: '',
           isAppend: true // 控制是滚动底部刷新 还是上拉加载
         },
-        slide: 0, // banner idx
       }
     },
     async mounted() {

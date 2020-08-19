@@ -60,6 +60,10 @@ Vue.component("sw-form", SwForm);
 Vue.component("sw-form-item", SwFormItem);
 Vue.component("sw-input", SwInput);
 
+// 自定义标题
+import SupTitle from "@/components/common/supTitle";
+Vue.component("sup-title", SupTitle);
+
 // 添加全局过滤器
 let filterObj = {}; // 全局filter obj
 Object.keys(filters).forEach(key => {

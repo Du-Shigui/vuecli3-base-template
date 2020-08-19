@@ -3,9 +3,10 @@
     <b-container>
       <b-row align-h="center" class="title-wrapper">
         <b-col class="text-center">
-          <div class="d-inline-block">
+          <!-- <div class="d-inline-block">
             <h3>我们的产品</h3>
-          </div>
+          </div> -->
+          <sup-title title="我们的产品" :shadow="true"></sup-title>
         </b-col>
       </b-row>
       <b-row class="card-wrapper">
