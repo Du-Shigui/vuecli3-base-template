@@ -26,8 +26,8 @@
 <script>
   // 组件
   import Solution from 'views/Home/Solution';
-  import OurProducts from 'views/Home/OurProducts';
-  import OurCustomer from 'views/Home/OurCustomer';
+  import OurProducts from 'components/common/OurProducts';
+  import OurCustomer from 'components/common/OurCustomer';
   import ContactUs from 'components/common/ContactUs';
   // 接口
   import DemoStudentTe from '@/service/Demo/DemoStudentTeAppService.js';

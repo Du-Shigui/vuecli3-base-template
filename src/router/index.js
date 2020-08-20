@@ -108,6 +108,12 @@ router.beforeEach((to, from, next) => {
 	// 监听路由，改变当前导航栏高亮状态
 	store.commit("CHANGE_CUR_ROUTE_NAME", to.name);
 	next();
+
+	// 路由变化后滚动到顶部
+	window.scrollTo({
+		top: 0,
+		behavior: 'smooth',
+	})
 });
 
 export default router

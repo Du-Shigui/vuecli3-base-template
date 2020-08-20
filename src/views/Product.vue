@@ -1,11 +1,10 @@
 <template>
-   <div class="product">
-      <div v-if="$route.name == 'product'">
-         Product
-      </div>
-      <router-view v-else />
+   <div class="product" v-if="$route.name == 'product'">
+      123
    </div>
+   <router-view v-else />
 </template>
+
 
 <script>
    export default {
