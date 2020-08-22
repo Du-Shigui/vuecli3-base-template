@@ -64,6 +64,10 @@ Vue.component("sw-input", SwInput);
 import SupTitle from "@/components/common/supTitle";
 Vue.component("sup-title", SupTitle);
 
+// 自定义卡片
+import CardList from '@/components/common/CardList';
+Vue.component("card-list", CardList);
+
 // 添加全局过滤器
 let filterObj = {}; // 全局filter obj
 Object.keys(filters).forEach(key => {

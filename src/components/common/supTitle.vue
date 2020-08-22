@@ -2,8 +2,8 @@
    <div
       class="sup-title d-flex flex-column justify-content-center align-items-center"
       :class="{ 'light': light }">
-      <h2 :class="{ 'sw-shadow': shadow }">{{ title }}</h2>
-      <h4 v-if="subTitle">{{ subTitle }}</h4>
+      <h2 class="text-center" :class="{ 'sw-shadow': shadow }">{{ title }}</h2>
+      <h4 class="text-center" v-if="subTitle">{{ subTitle }}</h4>
    </div>
 </template>
 
@@ -42,6 +42,7 @@
 <style lang="scss" scoped>
    // 板块标题样式
    .sup-title {
+      margin: 20px 0;
       width: 100%;
       position: relative;
       font-weight: 500;

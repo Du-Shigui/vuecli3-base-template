@@ -4,3 +4,36 @@
 @import "./variables";
 // 用 bootstrap 进行编译
 @import "~bootstrap/scss/bootstrap";
+
+$sw-xs: 0;
+$sw-sm: 576px;
+$sw-md: 768px;
+$sw-lg: 992px;
+$sw-xl: 1200px;
+
+@media (min-width: $sw-xs) {
+   .res-h1 { // 响应式h1标签
+      font-size: 28px;
+   }
+}
+@media (min-width: $sw-sm) {
+   .res-h1 {
+      font-size: 40px;
+   }
+}
+@media (min-width: $sw-md) {
+   .res-h1 {
+      font-size: 52px;
+   }
+}
+@media (min-width: $sw-lg) {
+   .res-h1 {
+      font-size: 64px;
+   }
+}
+@media (min-width: $sw-xl) {
+   .res-h1 {
+      font-size: 76px;
+   }
+}
+
