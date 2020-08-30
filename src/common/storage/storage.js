@@ -4,7 +4,7 @@ const storage = {
    },
    get: (key) => {
       return JSON.parse(
-         localStorage.getItem(key) === null ? "[]" : localStorage.getItem(key)
+         localStorage.getItem(key)
       );
    },
    remove: (key) => {

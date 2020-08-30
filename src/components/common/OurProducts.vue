@@ -56,7 +56,6 @@
     },
     methods: {
       enterHandler(evt, item) {
-        console.log(evt);
         this.cardArr.forEach(v => v.isHovered = false);
         let filter = this.cardArr.filter(v => v.name == item.name)[0]
         if (filter) {
@@ -64,7 +63,6 @@
         }
       },
       leaveHandler(evt, item) {
-        console.log(evt);
         this.cardArr.forEach(v => v.isHovered = false);
       },
     }

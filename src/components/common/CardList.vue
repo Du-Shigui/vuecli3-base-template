@@ -6,12 +6,14 @@
       <b-row class="card-content">
          <b-col cols="12" md="6" lg="4" class="sw-col text-center d-flex justify-content-center"
             v-for="(card, idx) in cardList" :key="idx">
-            <div class="p-5 sw-card d-flex flex-column justify-content-start align-items-center">
+            <div class="sw-card d-flex flex-column justify-content-start align-items-center">
                <div class="mb-3 top d-flex flex-column justify-content-end align-items-center">
-                  <icon-svg class="icon" :icon-class="card.icon" />
+                  <div class="icon-wrapper d-flex align-items-center justify-content-center">
+                     <icon-svg class="icon" :icon-class="card.icon" />
+                  </div>
                   <h4 class="mt-4">{{ card.title }}</h4>
                </div>
-               <p class="desc">{{ card.desc }}</p>
+               <p class="desc" v-if="card.desc">{{ card.desc }}</p>
             </div>
          </b-col>
       </b-row>
@@ -37,10 +39,7 @@
             type: Object,
             required: false,
             default: () => {
-               return {
-                  title: '',
-                  desc: '',
-               }
+               return null
             }
          }
       }
@@ -58,18 +57,24 @@
       }
 
       .sw-card {
+         padding: 60px 50px;
          width: 380px;
-         height: 400px;
+         // height: 400px;
          background: rgba(255, 255, 255, 1);
          box-shadow: 5px 5px 25px 0px rgba(46, 61, 73, 0.2);
          border-radius: 4px;
          transition: all .5s ease-in-out;
+
          &:hover {
             box-shadow: 2px 4px 8px 0px rgba(46, 61, 73, 0.2);
          }
 
          .top {
-            height: 185px;
+            // height: 185px;
+
+            .icon-wrapper {
+               // height: 90px;
+            }
 
             .icon {
                font-size: 90px;

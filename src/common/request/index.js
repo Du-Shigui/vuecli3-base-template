@@ -33,29 +33,30 @@ let config = {
 
 // token获取
 const getToken = async () => {
-   const userInfo = storage.getToken();
+   // const token = storage.getAppUserInfo();
    let userNameOrEmailAddress = "Test";
    let password = "Test!123";
    // if (userInfo) {
-   // 	userNameOrEmailAddress = userInfo.loginName;
-   // 	password = userInfo.pwd;
+   //    userNameOrEmailAddress = userInfo.loginName;
+   //    password = userInfo.pwd;
    // }
    let [error, res] = await swRequest({
-      url: api.domain + "/api/services/app/TokenAuthService/Authenticate",
+      url: api.domain +
+         "/api/services/app/TokenAuthService/Authenticate",
       method: "POST",
       data: {
          userNameOrEmailAddress: userNameOrEmailAddress,
          password: password,
       },
    });
-
    // 登陆不成功跳转登陆页
    if (res.data.success) {
       let obj = {};
       api.Authorization = `Bearer ${res.data.result.accessToken}`;
       obj.Bearer = api.Authorization;
       obj.overTime =
-         new Date().getTime() + res.data.result.expireInSeconds * 1000;
+         new Date().getTime() +
+         res.data.result.expireInSeconds * 1000;
       storage.setToken(obj);
    } else {
       // uni.navigateTo({
@@ -69,6 +70,11 @@ const verifyToken = async () => {
    let res = storage.getToken();
    if (res) {
       let nowTime = new Date().getTime();
+      console.log({
+         res,
+         nowTime,
+         'overTime': res.overTime
+      });
       if (res && res.Bearer && nowTime < res.overTime) {
          api.Authorization = res.Bearer;
       } else {
@@ -96,7 +102,6 @@ const Request = async (option) => {
          Authorization: api.Authorization,
          "X-Requested-With": "XMLHttpRequest",
       };
-
       // const userInfo = getApp().globalData.userInfo;
       // if (userInfo) {
       //    option.header.StoreInfo = `{storeId:'${userInfo.buUnitGUID}',cWCompanyID:'${userInfo.tenantId}'}`; // 当前门店的信息用于全局过滤
@@ -140,21 +145,21 @@ const Request = async (option) => {
             errorMsg;
 
          context.$toasted.show("提示信息: " + errorMsg, {
-				icon: {
-					name: "fa fa-exclamation", // icon见main.js
-				},
-				type: "error",
-			});
+            icon: {
+               name: "fa fa-exclamation", // icon见main.js
+            },
+            type: "error",
+         });
 
          // 有错误信息就返回空
          return null;
       } else {
          // context.$toasted.show("提示信息: " + errorMsg, {
-			// 	icon: {
-			// 		name: "fa fa-exclamation",
-			// 	},
-			// 	type: "error",
-			// });
+         // 	icon: {
+         // 		name: "fa fa-exclamation",
+         // 	},
+         // 	type: "error",
+         // });
       }
 
       let result = rdata.data;
@@ -167,7 +172,6 @@ const Request = async (option) => {
 
       return result;
    };
-
    if (!option.isNotNeedToken) {
       await verifyToken();
       let result = await requestApi();

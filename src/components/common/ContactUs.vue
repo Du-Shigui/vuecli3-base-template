@@ -1,5 +1,5 @@
 <template>
-   <div class="contact-us bg-white mb-5">
+   <div class="contact-us bg-white">
       <b-container class="sw-conttainer">
          <b-row class="title-wrapper" align-h="center">
             <b-col class="text-center d-flex flex-column align-items-center mt-4 mb-5">
@@ -119,6 +119,7 @@
 <style lang="scss" scoped>
    .contact-us {
       position: relative;
+      margin-bottom: 80px;
 
       &::before {
          content: '';
@@ -128,18 +129,6 @@
          width: 100%;
          height: 65%;
          background: center / cover no-repeat url("https://pic.cwyyt.cn/upload/20200816/210054054_yyt-website-contact-us-bg.png");
-      }
-
-      .fixed-img {
-         position: absolute;
-         top: 0;
-         left: 0;
-         right: 0;
-
-         .img {
-            width: 100%;
-            padding-bottom: 65%;
-         }
       }
 
       .sw-conttainer {
