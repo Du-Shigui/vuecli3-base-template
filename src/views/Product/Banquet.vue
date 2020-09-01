@@ -9,8 +9,16 @@
                     <b-img :src="$appConfig.picdomain + '/upload//20200820/1329512951_组 10@2x.png'"
                         fluid-grow
                         alt="宴会页Banner图"></b-img>
-                    <h1 class="res-h1 title position-absolute">宴会管理系统</h1>
-                    <b-col class="ab-text position-absolute"
+                    <h1 class="res-h1 title position-absolute d-xs-none d-md-block">宴会管理系统</h1>
+                    <b-col class="ab-text d-xs-none d-md-block position-absolute"
+                        xs="12"
+                        sm="12"
+                        md="6">
+                        <h5>定义宴会执行标准，管控执行流程</h5>
+                        <div>全面提高宴会服务水平，获得回头客</div>
+                    </b-col>
+                    <h1 class="d-xs-flex d-sm-none res-h1 title-xs position-absolute">宴会管理系统</h1>
+                    <b-col class="ab-text d-xs-flex d-sm-none "
                         xs="12"
                         sm="12"
                         md="6">
@@ -20,18 +28,20 @@
                 </b-col>
             </b-row>
             <div style="width:100%;height:140px;"
-                slass="d-none d-sm-flex"></div>
-            <b-container style="padding: 80px 0;">
-                <b-row class="mid-info justify-content-md-center align-items-center">
-                    <b-col class="mid-info"
-                        xs="8"
+                slass="d-none d-xs-none d-sm-flex"></div>
+            <b-container style="padding: 3% 0;">
+                <b-row align-h="center"
+                    class="justify-content-md-center align-items-center">
+                    <b-col class="col-xs-6"
+                        xs="6"
                         sm="6"
                         md="3">
                         <b-img class="mid-img"
+                            fluid-grow
                             :src="$appConfig.picdomain + '/upload//20200820/1334173417_组 10@2x(1).png'"></b-img>
                     </b-col>
                     <b-col class="mid-project-list offset-md-1"
-                        xs="8"
+                        xs="6"
                         sm="6"
                         md="4">
                         <div class="before-div1">01：多渠道线索获取</div>
@@ -113,6 +123,15 @@ export default {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+.title-xs {
+    font-family: "SourceHanSansSC-Regular";
+    text-shadow: rgba(0, 0, 0, 0.1) 7px 7px 7px;
+    color: #fff;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+}
 .ab-text {
     width: 56%;
     background: #fff;
@@ -133,9 +152,6 @@ export default {
         margin: 0 auto 20px;
     }
 }
-// .mid-info {
-//     max-width: 1200rpx;
-// }
 .mid-img {
     width: 100%;
     height: auto;

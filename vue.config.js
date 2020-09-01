@@ -1,12 +1,53 @@
 const webpack = require("webpack");
 const path = require("path");
 
+const prodEnv = process.env.NODE_ENV === "production"
+
 function resolve(dir) {
 	return path.join(__dirname, dir);
 }
 
+// cdn预加载使用
+const externals = {
+	vue: "Vue",
+	"vue-router": "VueRouter",
+	vuex: "Vuex",
+	axios: "axios",
+	jquery: "jQuery",
+	'AMap': 'AMap' // 高德地图配置
+};
+
+const cdn = {
+	// 开发环境
+	dev: {
+		css: [
+			// "https://unpkg.com/element-ui/lib/theme-chalk/index.css",
+			// "https://cdn.bootcss.com/nprogress/0.2.0/nprogress.min.css",
+		],
+		js: ["https://at.alicdn.com/t/font_2002270_irvdc1go0fn.js"],
+	},
+	// 生产环境
+	build: {
+		css: [
+			"https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css",
+			"https://cdn.bootcdn.net/ajax/libs/bootstrap-vue/2.16.0/bootstrap-vue.min.css",
+		],
+		js: [
+			"https://polyfill.io/v3/polyfill.min.js?features=es2015%2CIntersectionObserver", // 兼容旧浏览器
+			"https://at.alicdn.com/t/font_2002270_irvdc1go0fn.js", // iconfont字体图标
+			"https://cdn.bootcdn.net/ajax/libs/vue/2.6.11/vue.runtime.min.js",
+			"https://cdn.bootcdn.net/ajax/libs/bootstrap-vue/2.6.1/bootstrap-vue.min.js",
+			"https://cdn.bootcdn.net/ajax/libs/vue-router/3.2.0/vue-router.min.js",
+			"https://cdn.bootcdn.net/ajax/libs/vuex/3.2.0/vuex.min.js",
+			"https://cdn.bootcdn.net/ajax/libs/axios/0.19.2/axios.min.js",
+			"https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.slim.min.js",
+			"http://webapi.amap.com/maps?v=1.4.4&key='d5b8ac92271c1c9785b384c9b83ce8b5'"
+		],
+	},
+};
+
 module.exports = {
-	publicPath: process.env.NODE_ENV === "production" ? "/sw/" : "",
+	publicPath: prodEnv ? "/sw/" : "/",
 	/* 输出文件目录：在npm run build时，生成文件的目录名称 */
 	outputDir: "dist",
 	/* 放置生成的静态资源 (js、css、img、fonts) 的目录 */
@@ -21,7 +62,7 @@ module.exports = {
 		/* 自动打开浏览器 */
 		open: true,
 		/* 设置为0.0.0.0则所有的地址均能访问 */
-		host: '0.0.0.0',
+		host: "0.0.0.0",
 		port: 8090,
 		https: false,
 		hotOnly: false,
@@ -40,9 +81,30 @@ module.exports = {
 			.set("components", resolve("src/components"))
 			.set("views", resolve("src/views"))
 			.set("common", resolve("src/common"));
+
+		if (!prodEnv) {
+			// 开发环境下，分析包结构
+			config
+				.plugin("webpack-bundle-analyzer")
+				.use(require("webpack-bundle-analyzer").BundleAnalyzerPlugin);
+		}
+		config.module
+			.rule("images")
+			.use("imageWebpackLoader")
+			.loader("image-webpack-loader");
+
+		config.plugin("html").tap((args) => {
+			if (prodEnv) {
+				args[0].cdn = cdn.build;
+			}
+			if (!prodEnv) {
+				args[0].cdn = cdn.build;
+			}
+			return args;
+		});
 	},
 	configureWebpack: (config) => {
-		if (process.env.NODE_ENV === "production") {
+		if (prodEnv) { // 生产环境下 移除log日志
 			config.optimization.minimizer[0].options.terserOptions.compress.drop_console = true;
 		}
 		config.plugins.push(
@@ -53,6 +115,7 @@ module.exports = {
 				Popper: ["popper.js", "default"],
 			})
 		);
+		config.externals = externals;
 	},
 	css: {
 		loaderOptions: {

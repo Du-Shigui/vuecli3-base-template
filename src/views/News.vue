@@ -2,20 +2,22 @@
     <div class="news">
         <b-container>
             <b-row sm="3">
-                <b-col sm="3"
-                    class="d-sm-none d-md-block">
+                <b-col sm="12"
+                    md="3"
+                    class="">
                     <div class="left-nav">
                         <p v-for="(item,indexNav) in navArr"
                             :key="indexNav"
-                            :class="item.select?'active':''">{{item.nav}}</p>
-                        <p></p>
+                            :class="navSelect==item.id?'active':''"
+                            @click="navSelect=item.id">{{item.nav}}</p>
                     </div>
                 </b-col>
                 <b-col sm="12"
                     md="9"
                     class="">
                     <div class="right-list">
-                        <div class="right-list-item"
+                        <div id="news-list"
+                            class="right-list-item"
                             v-for="(item,index) in newsArr"
                             :key="index">
                             <b-row>
@@ -34,9 +36,13 @@
                             <b-pagination v-model="page.currentPage"
                                 :total-rows="page.rows"
                                 :per-page="page.perPage"
+                                aria-controls="news-list"></b-pagination>
+                            <!-- <b-pagination v-model="page.currentPage"
+                                :total-rows="page.rows"
+                                :per-page="page.perPage"
                                 size="Default"
                                 first-number
-                                last-number></b-pagination>
+                                last-number></b-pagination> -->
                         </b-row>
                     </div>
                 </b-col>
@@ -52,14 +58,17 @@ export default {
     name: 'News',
     data () {
         return {
+            navSelect: '001',//左侧选中的目录
             navArr: [
                 {
                     nav: '客户案例',
-                    select: false
+                    select: false,
+                    id: '001'
                 },
                 {
                     nav: '行业资讯',
-                    select: true
+                    select: true,
+                    id: '002'
                 }
             ],
             newsArr: [{
@@ -81,7 +90,21 @@ export default {
                 perPage: 1
             }
         }
-    }
+    },
+    methods: {
+    },
+    watch: {
+        navSelect: {
+            handler (val, old) {
+                console.log(val)
+            }
+        },
+        "page.currentPage": {
+            handler (val, old) {
+                console.log('页码', val)
+            }
+        }
+    },
 }
 </script>
 
@@ -92,7 +115,6 @@ export default {
     .left-nav {
         background: #fff;
         padding: 30px 15px;
-        min-height: 300px;
         p {
             line-height: 39px;
             color: #333;

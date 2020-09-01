@@ -3,7 +3,7 @@
         <div class="position-relative">
             <b-img :src="$appConfig.picdomain + '/upload//20200826/1342144214_组 16@2x.png'"
                 fluid-grow></b-img>
-            <div class="title position-absolute">营销管理</div>
+            <h1 class="res-h1 title position-absolute">营销管理</h1>
         </div>
         <!-- 会员管理 -->
         <!-- <mid-container :cardData="mid1Card"></mid-container> -->
@@ -12,12 +12,24 @@
                 :cardList="cardList1"></card-list>
         </b-container>
         <div class="position-relative conps">
-            <!-- <b-img :src="$appConfig.picdomain + '/upload//20200827/13070474_组 16@2x(1).png'"
-                fluid-grow></b-img> -->
-            <sup-title class=""
-                :title="conpsTitleObj.title"
-                :subTitle="conpsTitleObj.subTitle"
-                :light="conpsTitleObj.light"></sup-title>
+            <b-row>
+                <b-col class="d-none  d-md-block">
+                    <sup-title class="conps-title position-absolute"
+                        :title="conpsTitleObj.title"
+                        :subTitle="conpsTitleObj.subTitle"
+                        :light="conpsTitleObj.light"></sup-title>
+
+                </b-col>
+                <b-col class="d-xs-block d-sm-block d-md-none d-lg-none d-xl-none">
+                    <sup-title class="conps-title1 "
+                        :title="conpsTitleObj.title"
+                        :subTitle="conpsTitleObj.subTitle"></sup-title>
+
+                </b-col>
+                <b-img :src="$appConfig.picdomain + '/upload//20200827/13070474_组 16@2x(1).png'"
+                    fluid-grow></b-img>
+            </b-row>
+
         </div>
         <b-container>
             <card-list :titleObj="titleObj2"
@@ -110,12 +122,11 @@ export default {
 }
 </script>
 
-<style lang="scss" scpoed>
+<style lang="scss" scoped>
 .marketing {
     background: #f7f7f7;
 }
 .title {
-    font-size: 65px;
     font-family: "SourceHanSansSC-Regular";
     text-shadow: rgba(0, 0, 0, 0.1) 7px 7px 7px;
     color: #fff;
@@ -124,9 +135,15 @@ export default {
     left: 50%;
     transform: translate(-50%, -50%);
 }
-.conps {
-    background: center / cover no-repeat
-        url("https://pic.cwyyt.cn/upload//20200827/13070474_组 16@2x(1).png");
+.conps-title {
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
     padding: 2% 0 20%;
+}
+.conps {
+    // background: center / cover no-repeat
+    //     url("https://pic.cwyyt.cn/upload//20200827/13070474_组 16@2x(1).png");
+    // padding: 2% 0 20%;
 }
 </style>

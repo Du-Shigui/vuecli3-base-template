@@ -1,9 +1,9 @@
 // function得在 variables 之前
-@import "~bootstrap/scss/_functions";
+// @import "~bootstrap/scss/_functions";
 // 自定义变量（node_modules/bootstrap/scss/_variables.scss 拷贝而来）
-@import "./variables";
+// @import "./variables";
 // 用 bootstrap 进行编译
-@import "~bootstrap/scss/bootstrap";
+// @import "~bootstrap/scss/bootstrap";
 
 // @function calcResponsePx($px, $breakpoint) {
 //    @return $px / (1920 / $breakpoint) + 'px';

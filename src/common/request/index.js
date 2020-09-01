@@ -24,7 +24,7 @@ let config = {
    // 参数
    data: {},
    // 设置超时时间
-   timeout: 50000,
+   timeout: 100000,
    // 携带凭证
    withCredentials: true,
    // 返回数据类型
@@ -70,11 +70,6 @@ const verifyToken = async () => {
    let res = storage.getToken();
    if (res) {
       let nowTime = new Date().getTime();
-      console.log({
-         res,
-         nowTime,
-         'overTime': res.overTime
-      });
       if (res && res.Bearer && nowTime < res.overTime) {
          api.Authorization = res.Bearer;
       } else {
