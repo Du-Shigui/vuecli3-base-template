@@ -11,22 +11,25 @@
 </template>
 
 <script>
-  import Navbar from 'components/common/Navbar'
-  import FooterBottom from 'components/common/FooterBottom'
-  export default {
-    name: 'App',
-    components: {
-      Navbar,
-      FooterBottom
-    },
-  }
+import Navbar from 'components/common/Navbar'
+import FooterBottom from 'components/common/FooterBottom'
+export default {
+  name: 'App',
+  components: {
+    Navbar,
+    FooterBottom,
+  },
+}
 </script>
 
 <style lang="scss">
-  #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    min-width: 320px;
-  }
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-width: 320px;
+}
+a:hover {
+  text-decoration: none;
+}
 </style>

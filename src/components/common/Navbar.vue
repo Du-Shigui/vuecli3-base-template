@@ -4,8 +4,8 @@
       <b-container class="container">
          <b-navbar-brand :to="{ name: 'home' }" class="logo-wrapper d-flex justify-content-center align-items-center">
             <icon-svg class="logo" icon-class="icon-yunyutianlogo1" />
-            <div class="split-line"></div>
-            <div class="sub-title">智能数据管理服务</div>
+            <div class="split-line d-none d-sm-block"></div>
+            <div class="sub-title d-none d-sm-block">智能数据管理服务</div>
          </b-navbar-brand>
 
          <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
@@ -22,20 +22,11 @@
                   <b-nav-item-dropdown class="nav-item" :text="item.title"
                      :class="{ 'active': curRouteName === item.name || $route.path.includes(item.name) }" :key="idx"
                      v-else right>
-                     <!-- Using 'button-content' slot -->
-                     <!-- <template v-slot:button-content>
-                        <b-link
-                        :class="{ 'active': curRouteName === item.name }"
-                        @click.native="gotoNav(subItem)">{{item.title}}</b-link>
-                     </template> -->
                      <b-dropdown-item :class="{ 'active': curRouteName === subItem.name }"
                         v-for="(subItem, index) in item.children" :key="index" :to="{ name: subItem.name }">
                         {{ subItem.title }}
                      </b-dropdown-item>
-                     <b-dropdown-divider></b-dropdown-divider>
-                     <b-dropdown-item :class="{ 'active': curRouteName === 'product' }" :to="{ name: item.name }">
-                        所有产品
-                     </b-dropdown-item>
+                     <!-- <b-dropdown-divider></b-dropdown-divider> -->
                   </b-nav-item-dropdown>
                </template>
             </b-navbar-nav>
@@ -114,7 +105,7 @@
 <style lang="scss" scoped>
    .navbar {
       background: white !important;
-      box-shadow: 0 1px 20px 0 rgba(46,61,73,.2);
+      box-shadow: 0 1px 20px 0 rgba(46, 61, 73, .2);
    }
 
    .container {
@@ -185,5 +176,9 @@
    // 高亮文字
    .container /deep/ .navbar-nav .active>.nav-link {
       color: #3385FF !important;
+   }
+
+   .container /deep/ .dropdown-menu {
+      text-align: center;
    }
 </style>

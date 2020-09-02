@@ -3,9 +3,6 @@
     <b-container>
       <b-row align-h="center" class="title-wrapper">
         <b-col class="text-center">
-          <!-- <div class="d-inline-block">
-            <h3>我们的产品</h3>
-          </div> -->
           <sup-title title="我们的产品" :shadow="true"></sup-title>
         </b-col>
       </b-row>
@@ -18,7 +15,7 @@
             :class="{ 'active': item.isHovered }">
             <icon-svg class="icon" :icon-class="item.icon" />
             <h5 class="pt-5 pb-3">{{ item.name }}</h5>
-            <b-button class="sw-btn">查看详情</b-button>
+            <b-button :to="{ name: item.link }" class="sw-btn">查看详情</b-button>
           </div>
         </b-col>
       </b-row>
@@ -34,22 +31,22 @@
         cardArr: [{
           icon: 'icon-guanwangshouye-zhinengyudingxitong',
           name: '智能预订系统',
-          link: 'www.baidu.com',
+          link: 'reserve',
           isHovered: false
         }, {
           icon: 'icon-guanwangshouye-kehuguanlixitong',
           name: '客户管理系统',
-          link: 'www.baidu.com',
+          link: 'customer',
           isHovered: false
         }, {
           icon: 'icon-guanwangshouye-yanhuiguanlixitong',
           name: '宴会管理系统',
-          link: 'www.baidu.com',
+          link: 'banquet',
           isHovered: false
         }, {
           icon: 'icon-guanwangshouye-yingxiaoguanlixitong',
           name: '营销管理系统',
-          link: 'www.baidu.com',
+          link: 'marketing',
           isHovered: false
         }],
       }

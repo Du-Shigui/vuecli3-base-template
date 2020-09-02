@@ -47,7 +47,7 @@ const cdn = {
 };
 
 module.exports = {
-	publicPath: prodEnv ? "/sw/" : "/",
+	publicPath: prodEnv ? "/" : "/",
 	/* 输出文件目录：在npm run build时，生成文件的目录名称 */
 	outputDir: "dist",
 	/* 放置生成的静态资源 (js、css、img、fonts) 的目录 */
@@ -100,6 +100,7 @@ module.exports = {
 			if (!prodEnv) {
 				args[0].cdn = cdn.build;
 			}
+			args[0].title = '云于天 | 首页';
 			return args;
 		});
 	},

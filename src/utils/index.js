@@ -53,7 +53,20 @@ function null2str(data) {
    return data;
 }
 
+/**
+ * @description: 用于发送某个指定URL的PV统计请求  https://tongji.baidu.com/web/help/article?id=235&type=0
+ * @param {pageUrl} 页面的URl
+ * @example this.$util.baiduPageView();
+ */
+function baiduPageView(pageUrl) {
+		// 加上storeId
+   pageUrl = `${pageUrl}`
+   _hmt.push(['_setAutoPageview', false]);
+   _hmt.push(['_trackPageview', pageUrl]);
+}
+
 export default {
 	urlEncode,
 	null2str,
+	baiduPageView,
 };

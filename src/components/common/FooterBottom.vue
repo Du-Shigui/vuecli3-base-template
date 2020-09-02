@@ -9,16 +9,16 @@
                      <a class="nav-link text-dark" href="#">地址：湖北省武汉市武大园一路武大科技园创业楼</a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link text-dark" href="#">电话：027-87607295</a>
+                     <a class="nav-link text-dark" href="tel:02787607295">电话：027-87607295</a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link text-dark" href="#">邮箱：whcewei@whcewei.com</a>
+                     <a class="nav-link text-dark" href="mailto:whcewei@whcewei.com">邮箱：whcewei@whcewei.com</a>
                   </li>
                </ul>
             </b-col>
             <b-col sm="12" md="2">
                <div class="qr-code-wrapper d-flex flex-column align-items-center justify-content-center">
-                  <img src="http://placekitten.com/110/100" class="qr-code  mb-3" alt="二维码">
+                  <img :src="$appConfig.picdomain + '/upload/20200901/165703573_gzh-qrcode.png'" class="qr-code  mb-3" alt="二维码">
                   <div>扫码了解更多</div>
                </div>
             </b-col>

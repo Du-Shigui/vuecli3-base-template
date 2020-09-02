@@ -1,47 +1,132 @@
 <template>
-  <div class="custoemr">
-    <!-- ========================= hero START ========================= -->
-    <div class="customer-title bg-white">
-      <b-container class="sw-conttainer">
-        <b-row class="title-wrapper" align-h="center">
-          <b-col class="text-center d-flex flex-column align-items-center mt-4 mb-5">
-            <h1 class="sw-h1">智能预定系统</h1>
+  <div class="customer">
+    <!-- hero img -->
+    <div class="hero-wrapper position-relative">
+      <b-img
+        fluid-grow
+        alt="客户管理系统"
+        :src="
+          $appConfig.picdomain + '/upload//20200822/1430203020_客户管理系统.png'
+        "
+      ></b-img>
+      <h1 class="res-h1 position-absolute hero-title text-break text-center">
+        客户管理系统
+      </h1>
+    </div>
+    <b-container class="sw-container">
+      <!-- 卡片群 -->
+      <card-list
+        class="card-wrapper"
+        :cardList="card1"
+        :titleObj="card1TitleInfo"
+      ></card-list>
+      <card-list
+        class="card-wrapper"
+        :cardList="card2"
+        :titleObj="card2TitleInfo"
+      ></card-list>
+    </b-container>
+    <!-- ========================= 产品截图 START ========================= -->
+    <div class="section screenshots1">
+      <b-row cols="12">
+        <sup-title title="数据驱动，分析客户价值" :light="true"></sup-title>
+      </b-row>
+      <b-container class="section-main">
+        <b-row>
+          <b-col class="mb-3" cols="12" md="6">
+            <div
+              class="box d-flex flex-column align-items-center justify-content-center"
+            >
+              <b-img
+                class="img"
+                :src="
+                  $appConfig.picdomain +
+                    '/upload//20200822/1729282928_客户详情-消费记录.png'
+                "
+              >
+              </b-img>
+              <p class="desc text-center">轻松查看客户跟踪消费记录</p>
+            </div>
           </b-col>
-        </b-row>
-        <b-row align-h="center" class="center-banner bg-white text-center">
-          <b-col md="12" lg="7" class="">
-            <b-img class="sw-img" fluid-grow :src="$appConfig.picdomain + '/upload//20200827/1336483648_mac_phone.png'">
-            </b-img>
-          </b-col>
-          <b-col md="12" lg="5">
-            <div class="pt-4 d-block d-lg-none d-xl-none"></div>
-            <div class="box d-flex flex-column justify-content-center align-items-center">
-              <ul class="nav flex-column text-left">
-                <li class="nav-item">
-                  <a class="nav-link text-dark" href="javascript:void(0)">减轻预定工作量，告别手写预定时代</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link text-dark" href="javascript:void(0)">预订及客户，轻松获取客户</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link text-dark" href="javascript:void(0)">订单数据云端存储，高效管理</a>
-                </li>
-              </ul>
+          <b-col class="mb-3" cols="12" md="6">
+            <div
+              class="box d-flex flex-column align-items-center justify-content-center"
+            >
+              <b-img
+                fluid-grow
+                class="img"
+                :src="
+                  $appConfig.picdomain +
+                    '/upload//20200822/1730123012_月统计.png'
+                "
+              >
+              </b-img>
+              <p class="desc text-center">月统计，便于了解门店经营情况</p>
             </div>
           </b-col>
         </b-row>
       </b-container>
     </div>
-    <!-- ========================= hero END ========================= -->
-
-    <!-- ========================= feature START ========================= -->
-    <div class="feature-wrapper">
-      <b-container class="sw-container">
-        <card-list class="card-wrapper" :cardList="cardList"></card-list>
+    <div class="section screenshots2">
+      <b-row cols="12">
+        <sup-title title="目标管理体系，助力客户管理"></sup-title>
+      </b-row>
+      <b-container class="section-main">
+        <b-row>
+          <b-col class="my-3" cols="12" md="12" lg="6">
+            <div
+              class="box d-flex flex-column align-items-center justify-content-center"
+            >
+              <b-img
+                class="img"
+                :src="
+                  $appConfig.picdomain +
+                    '/upload//20200822/1747294729_流程图.png'
+                "
+              >
+              </b-img>
+              <p style="width: 50%;" class="desc text-center">
+                完善的目标设定机制，激励员工，提高销
+                量，可查看门店和个人的目标完成情况
+              </p>
+            </div>
+          </b-col>
+          <b-col class="my-3" cols="12" md="6" lg="3">
+            <div
+              class="box d-flex flex-column align-items-center justify-content-center"
+            >
+              <b-img
+                fluid-grow
+                class="img"
+                :src="
+                  $appConfig.picdomain +
+                    '/upload//20200822/1748584858_目标完成.png'
+                "
+              >
+              </b-img>
+              <p class="desc text-center">全店目标完成情况</p>
+            </div>
+          </b-col>
+          <b-col class="my-3" cols="12" md="6" lg="3">
+            <div
+              class="box d-flex flex-column align-items-center justify-content-center"
+            >
+              <b-img
+                fluid-grow
+                class="img"
+                :src="
+                  $appConfig.picdomain +
+                    '/upload//20200822/1749164916_个人完成.png'
+                "
+              >
+              </b-img>
+              <p class="desc text-center">个人目标完成情况</p>
+            </div>
+          </b-col>
+        </b-row>
       </b-container>
     </div>
-    <!-- ========================= feature END ========================= -->
-
+    <!-- ========================= 产品截图 END ========================= -->
     <!-- ========================= 联系我们 START ========================= -->
     <contact-us></contact-us>
     <!-- ========================= 联系我们 END ========================= -->
@@ -49,221 +134,149 @@
 </template>
 
 <script>
-  import ContactUs from 'components/common/ContactUs';
+import ContactUs from 'components/common/ContactUs'
 
-  export default {
-    name: 'customer',
-    data() {
+export default {
+  name: 'customer',
+  components: {
+    ContactUs,
+  },
+  data() {
+    return {
+      showSelf: 1,
+      cardList: [
+        {
+          icon: 'icon-chanpin02-kehuzhinengfenji',
+          title: '客户智能分级',
+          desc: '根据消费频次，消费金额，消费时间自动将客户分级',
+        },
+        {
+          icon: 'icon-chanpin02-genzongkehuzidongtuisong',
+          title: '跟踪客户自动推送',
+          desc: '自动推送需要跟踪的客户',
+        },
+        {
+          icon: 'icon-chanpin02-zhinengkehubiaoqian',
+          title: '智能客户标签',
+          desc: '满足标签条件客户自动打上标签，精准跟踪',
+        },
+        {
+          icon: 'icon-chanpin02-qunfaduanxingongju',
+          title: '群发短信工具，告别重复编辑',
+          desc: '一键预览，防错机制，避免短信错误',
+        },
+        {
+          icon: 'icon-chanpin02-zidingyiduozhongduanxinmoban',
+          title: '自定义多种短信模版，提高跟踪效率',
+          desc: '预订短信模版，跟踪短信模版',
+        },
+        {
+          icon: 'icon-chanpin02-duijieshoujitongxunlu',
+          title: '对接手机通讯录，客户跟踪不流失',
+          desc: 'app直接查看手机客户，避免遗漏',
+        },
+      ],
+    }
+  },
+  computed: {
+    card1() {
+      return this.cardList.slice(0, 3)
+    },
+    card2() {
+      return this.cardList.slice(3)
+    },
+    card1TitleInfo() {
       return {
-        cardList: [{
-          icon: 'icon-chanpin01-PCduanyidongduanduoshebeishujutongbu',
-          title: 'PC端、移动端多设备数据同步',
-        }, {
-          icon: 'icon-chanpin01-huantaibingtaifantaisuotaimanzuyewuxuqiu',
-          title: '换台、并台、翻台、锁台满足业务需求',
-        }, {
-          icon: 'icon-chanpin01-laidianzhanshigongneng',
-          title: '来电展示功能，显示客户消费记 录，跟踪记录，通过记录',
-        }, {
-          icon: 'icon-chanpin01-fangzhuangdansheji',
-          title: '防撞单设计，避免预订错误',
-        }, {
-          icon: 'icon-chanpin01-duanxinzidongtuisong',
-          title: '短信自动推送服务，提高客户满意度',
-        }, {
-          icon: 'icon-chanpin01-jingyingshujutongjifenxi',
-          title: '经营数据统计分析，数据驱动提高销',
-        }, ]
+        title: '价值客户智能挖掘',
+        desc: '',
       }
     },
-    components: {
-      ContactUs,
+    card2TitleInfo() {
+      return {
+        title: '多种工具助力客户跟踪',
+        desc: '',
+      }
     },
-  }
+  },
+}
 </script>
 
 <style lang="scss" scoped>
-  .customer-title {
-    position: relative;
+.hero-wrapper {
+  .hero-title {
+    // font-size: 80px;
+    font-weight: 400;
+    color: white;
+    text-shadow: 0px 7px 7px rgba(0, 0, 0, 0.33);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
 
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 65%;
-      background: center / cover no-repeat url("https://pic.cwyyt.cn//upload//20200827/1327152715_智能预定系统.png");
+.sw-container {
+  padding: 0 0 60px 0;
+  & /deep/ .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .card-wrapper {
+    .row {
+      margin: 0;
     }
 
-    .sw-conttainer {
-      padding-bottom: 120px;
+    // margin: 30px 0;
+  }
+}
 
-      @media (min-width: $sw-xs) {
-        padding-bottom: 40px;
+.screenshots1 /deep/ .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+.screenshots2 /deep/ .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.section {
+  padding: 40px 0;
+  position: relative;
+
+  &.screenshots1::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: center / cover no-repeat
+      url('https://pic.cwyyt.cn/upload//20200822/1654285428_数据驱动.png');
+  }
+
+  .section-main {
+    margin-top: 50px;
+
+    .box {
+      .img {
+        width: 100%;
+        max-width: 340px;
+        max-height: 460px;
+        margin-bottom: 20px;
       }
 
-      @media (min-width: $sw-sm) {
-        padding-bottom: 60px;
-      }
-
-      @media (min-width: $sw-md) {
-        padding-bottom: 80px;
-      }
-
-      @media (min-width: $sw-lg) {
-        padding-bottom: 100px;
-      }
-
-      @media (min-width: $sw-xl) {
-        padding-bottom: 120px;
-      }
-
-      position: relative;
-      z-index: 1;
-
-      .title-wrapper {
-        padding-top: 160px;
-
-        @media (min-width: $sw-xs) {
-          padding-top: 80px;
-        }
-
-        @media (min-width: $sw-sm) {
-          padding-top: 100px;
-        }
-
-        @media (min-width: $sw-md) {
-          padding-top: 120px;
-        }
-
-        @media (min-width: $sw-lg) {
-          padding-top: 140px;
-        }
-
-        @media (min-width: $sw-xl) {
-          padding-top: 160px;
-        }
-
-        .sw-h1 {
-          font-size: 70px;
-          font-family: Source Han Sans SC;
-          font-weight: 400;
-          color: rgba(255, 255, 255, 1);
-          line-height: 80px;
-          text-shadow: 0px 7px 6px rgba(0, 0, 0, 0.33);
-        }
-      }
-
-      .center-banner {
-        background: rgba(255, 255, 255, 1);
-        box-shadow: 0px 3px 18px 0px rgba(0, 0, 0, 0.06);
-        padding: 80px;
-
-        @media (min-width: $sw-xs) {
-          padding: 20px;
-        }
-
-        @media (min-width: $sw-sm) {
-          padding: 40px;
-        }
-
-        @media (min-width: $sw-md) {
-          padding: 60px;
-        }
-
-        @media (min-width: $sw-lg) {
-          padding: 80px;
-        }
-
-        @media (min-width: $sw-xl) {
-          padding: 110px;
-        }
-
-        margin-top: 160px;
-
-        @media (min-width: $sw-xs) {
-          margin-top: 80px;
-        }
-
-        @media (min-width: $sw-sm) {
-          margin-top: 100px;
-        }
-
-        @media (min-width: $sw-md) {
-          margin-top: 120px;
-        }
-
-        @media (min-width: $sw-lg) {
-          margin-top: 140px;
-        }
-
-        @media (min-width: $sw-xl) {
-          margin-top: 160px;
-        }
-
-        .box {
-          height: 100%;
-
-          .nav {
-            position: relative;
-            padding-top: 30px;
-
-            &::before {
-              position: absolute;
-              content: "";
-              left: 0;
-              top: 0;
-              width: 50px;
-              height: 6px;
-              background: $primary;
-            }
-
-            .nav-item {
-              padding-left: 6px;
-              position: relative;
-
-              &::before {
-                position: absolute;
-                content: "";
-                background: $primary;
-                width: 6px;
-                height: 6px;
-                border-radius: 50%;
-                top: 50%;
-                left: 0;
-                transform: translateY(-50%);
-              }
-            }
-          }
-        }
+      .desc {
+        font-size: 20px;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 1);
+        text-shadow: 0px 7px 7px rgba(0, 0, 0, 0.2);
       }
     }
   }
 
-  .feature-wrapper {
-    padding: 110px 0;
-
-    @media (min-width: $sw-xs) {
-      padding: 40px 0;
-    }
-
-    @media (min-width: $sw-sm) {
-      padding: 60px 0;
-    }
-
-    @media (min-width: $sw-md) {
-      padding: 70px 0;
-    }
-
-    @media (min-width: $sw-lg) {
-      padding: 90px 0;
-    }
-
-    @media (min-width: $sw-xl) {
-      padding: 110px 0;
-    }
-
-    background: center / cover no-repeat url("https://pic.cwyyt.cn//upload//20200827/1436373637_customer-feature.png");
+  &.screenshots2 .section-main .box .desc {
+    color: rgba(51, 51, 51, 1) !important;
+    text-shadow: none;
   }
+}
 </style>

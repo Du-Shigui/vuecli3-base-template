@@ -32,7 +32,7 @@
       </b-container>
     </div>
     <b-container>
-      <b-row>
+      <b-row align-h="center">
         <b-col
           sm="10"
           xs="12"
@@ -77,8 +77,10 @@
             v-for="(item, index) in callMe"
             :key="index"
           >
-            <icon-svg class="icon" :icon-class="item.icon" />
-            <p>{{ item.desc }}</p>
+            <a :href="item.desc">
+              <icon-svg class="icon" :icon-class="item.icon" />
+              <p>{{ item.desc }}</p>
+            </a>
           </b-col>
         </b-row>
       </b-container>
@@ -169,7 +171,8 @@ export default {
 .absolute-sit {
   background: #fff;
   bottom: 0;
-  transform: translateY(50%);
+  left: 50%;
+  transform: translate(-50%, 50%);
 }
 .bander-sec {
   padding: 12px 24px 48px;
@@ -209,5 +212,16 @@ export default {
 }
 .amap-demo {
   height: 500px;
+}
+.row {
+  margin: 0 !important;
+}
+@media (max-width: 575px) {
+  .call-me {
+    .call-item:first-child {
+      border-right: 0 !important;
+      border-bottom: 1px solid #e6e6e6;
+    }
+  }
 }
 </style>
