@@ -44,20 +44,12 @@
 
 <script>
    import DemoStudentTe from '@/service/Demo/DemoStudentTeAppService.js';
+   import YYPSiteContract from '@/service/YYPSiteContract';
 
    export default {
       name: "contact-us",
       data() {
          return {
-            // 请求远程参数
-            queryPage: {
-               pageIndex: 1,
-               pageSize: 5,
-               order: 'createTime desc',
-               studentName: '',
-               className: '',
-               isAppend: true // 控制是滚动底部刷新 还是上拉加载
-            },
             form: {
                companyName: '', // 企业名称
                fullName: '', // 真实姓名
@@ -98,8 +90,19 @@
          onSubmit(form) {
             this.$refs[form].validate(async valid => {
                if (valid) {
-                  alert(JSON.stringify(this.form));
-                  await DemoStudentTe.GetViewPage(this.queryPage);
+                  // alert(JSON.stringify(this.form));
+                  let {
+                     companyName,
+                     fullName: realUserName,
+                     contact: contractTel,
+                     content: contractRemark
+                  } = this.form
+                  await YYPSiteContract.CreateByDto({
+                     companyName,
+                     realUserName,
+                     contractTel,
+                     contractRemark
+                  });
                } else {
                   this.$toasted.show("请核实您的信息", {
                      icon: {

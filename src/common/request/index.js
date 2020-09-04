@@ -41,14 +41,13 @@ const getToken = async () => {
    //    password = userInfo.pwd;
    // }
    let [error, res] = await swRequest({
-      url: api.domain +
-         "/api/services/app/TokenAuthService/Authenticate",
-      method: "POST",
-      data: {
-         userNameOrEmailAddress: userNameOrEmailAddress,
-         password: password,
-      },
-   });
+		url: api.domain + "/api/services/app/TokenAuthService/Authenticate",
+		method: "POST",
+		data: {
+			userNameOrEmailAddress: userNameOrEmailAddress,
+			password: password,
+		},
+	});
    // 登陆不成功跳转登陆页
    if (res.data.success) {
       let obj = {};
@@ -94,7 +93,7 @@ const Request = async (option) => {
          option.url = api.domain + option.url;
       }
       option.header = {
-         Authorization: api.Authorization,
+         // Authorization: api.Authorization,
          "X-Requested-With": "XMLHttpRequest",
       };
       // const userInfo = getApp().globalData.userInfo;
