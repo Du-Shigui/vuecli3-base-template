@@ -1,6 +1,22 @@
-# 云于天官网
+# vue-cli3+BootstrapVue项目搭建
 
-## 安装
+## 介绍
+
+我司App的官网，使用 vue-cli3 + bootstrapVue 搭建而成，项目本身有对例如 axios 做了简易封装。有需拿去作参考的童鞋自取~
+
+## 技术栈
+
+-  [Vue2](https://cn.vuejs.org/)、[Vue-Router](https://router.vuejs.org/zh/)、[Vuex](https://vuex.vuejs.org/zh/) 三件套
+-  [Bootstrap-Vue](https://github.com/bootstrap-vue/bootstrap-vue) 响应式页面搭建
+-  [Axios](https://github.com/axios/axios) 网络请求
+-  [Vue-Progressbar](https://github.com/hilongjw/vue-progressbar) 网页加载进度条
+-  [Vue-Toasted](https://github.com/shakee93/vue-toasted) 弹窗提醒
+-  [Vue-Amap](https://github.com/ElemeFE/vue-amap) 高德地图
+-  [Async-Validator](https://github.com/yiminghe/async-validator) 表单异步验证
+
+## 使用
+
+下载项目到本地后执行安装依赖
 
 ```shell
 npm install
@@ -49,7 +65,17 @@ module.exports = {
 
 运行 `npm run serve` 即弹出报告图。
 
-### externals 提取依赖包
+P.S. 想要看生产环境下的最终打包分析图，可执行：
+
+```shell
+npm run build:report
+```
+
+报告会生成在 `dist` 目录下，名为 `report.html`
+
+### externals 提取依赖包（示例）
+
+仅为示例，本项目在提取时不分dev和build，全部统统走cdn。
 
 ```js
 // cdn预加载使用
@@ -157,4 +183,10 @@ module.exports = {
   },
 }
 ```
+
+### 优化前后对比
+
+![](images/before-optimization.png)
+
+![](images/after-optimization.png)
 
