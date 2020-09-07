@@ -111,12 +111,12 @@ export default {
             },
             {
                icon: 'icon-chanpin04-zidingyimiaoshaguize',
-               title: '会员积分',
+               title: '',
                desc: '自定义秒杀规则，应对多场景',
             },
             {
                icon: 'icon-chanpin04-miaoshashijian',
-               title: '会员储值',
+               title: '',
                desc: '秒杀时间库存灵活管理，有效 控制超购',
             },
          ],

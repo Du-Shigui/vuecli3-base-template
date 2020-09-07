@@ -17,7 +17,7 @@
                xs="12"
                sm="8"
                md="6">
-               <h5>定义宴会执行标准，管控执行流程</h5>
+               <div>定义宴会执行标准，管控执行流程</div>
                <div>全面提高宴会服务水平，获得回头客</div>
             </b-col>
             <h1 class="d-xs-flex d-sm-none res-h1 title-xs position-absolute">
@@ -27,7 +27,7 @@
                xs="12"
                sm="12"
                md="6">
-               <h5>定义宴会执行标准，管控执行流程</h5>
+               <div>定义宴会执行标准，管控执行流程</div>
                <div>全面提高宴会服务水平，获得回头客</div>
             </b-col>
          </b-col>

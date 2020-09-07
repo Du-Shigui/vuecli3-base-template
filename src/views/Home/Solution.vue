@@ -9,12 +9,12 @@
             <b-col class="my-2"
                v-for="(item, idx) in iconArr"
                :key="idx">
-               <div class="d-flex justify-content-center align-items-center">
+               <div class="d-flex justify-content-center">
                   <icon-svg class="icon"
                      :icon-class="item.icon" />
-                  <div class="right d-flex flex-column justify-content-center align-items-center">
-                     <span>{{ item.num }}</span>
-                     <span>{{ item.name }}</span>
+                  <div class="right d-flex flex-column justify-content-center">
+                     <span class="font-col-33">{{ item.num }}</span>
+                     <span class="font-col-66">{{ item.name }}</span>
                   </div>
                </div>
             </b-col>
@@ -175,10 +175,11 @@ export default {
       span {
          font-size: 14px;
          font-weight: 500;
-         color: rgba(51, 51, 51, 1);
+         color: #666;
 
          &:first-of-type {
             font-size: 18px;
+            color: #333;
          }
       }
    }
@@ -204,6 +205,7 @@ export default {
          p {
             margin-top: 30px;
             width: 100%;
+            color: #555;
          }
       }
 

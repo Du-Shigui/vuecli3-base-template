@@ -6,7 +6,7 @@
             <b-row class="title-wrapper"
                align-h="center">
                <b-col class="text-center d-flex flex-column align-items-center mt-4 mb-5">
-                  <h1 class="sw-h1">智能预定系统</h1>
+                  <h1 class="sw-h1 res-h1">智能预定系统</h1>
                </b-col>
             </b-row>
             <b-row align-h="center"
@@ -68,22 +68,22 @@ export default {
       return {
          cardList: [{
             icon: 'icon-chanpin01-PCduanyidongduanduoshebeishujutongbu',
-            title: 'PC端、移动端多设备数据同步',
+            desc: 'PC端、移动端多设备数据同步',
          }, {
             icon: 'icon-chanpin01-huantaibingtaifantaisuotaimanzuyewuxuqiu',
-            title: '换台、并台、翻台、锁台满足业务需求',
+            desc: '换台、并台、翻台、锁台满足业务需求',
          }, {
             icon: 'icon-chanpin01-laidianzhanshigongneng',
-            title: '来电展示功能，显示客户消费记 录，跟踪记录，通过记录',
+            desc: '来电展示功能，显示客户消费记 录，跟踪记录，通过记录',
          }, {
             icon: 'icon-chanpin01-fangzhuangdansheji',
-            title: '防撞单设计，避免预订错误',
+            desc: '防撞单设计，避免预订错误',
          }, {
             icon: 'icon-chanpin01-duanxinzidongtuisong',
-            title: '短信自动推送服务，提高客户满意度',
+            desc: '短信自动推送服务，提高客户满意度',
          }, {
             icon: 'icon-chanpin01-jingyingshujutongjifenxi',
-            title: '经营数据统计分析，数据驱动提高销',
+            desc: '经营数据统计分析，数据驱动提高销',
          },]
       }
    },
@@ -158,7 +158,7 @@ export default {
          }
 
          .sw-h1 {
-            font-size: 70px;
+            // font-size: 70px;
             font-family: Source Han Sans SC;
             font-weight: 400;
             color: rgba(255, 255, 255, 1);

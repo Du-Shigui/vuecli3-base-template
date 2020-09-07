@@ -264,7 +264,7 @@ export default {
    }
 
    &.screenshots2 .section-main .box .desc {
-      color: rgba(51, 51, 51, 1) !important;
+      color: #666 !important;
       text-shadow: none;
    }
 }

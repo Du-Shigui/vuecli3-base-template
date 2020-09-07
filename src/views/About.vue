@@ -58,7 +58,8 @@
          </b-row>
       </div>
       <!-- 联系我们 -->
-      <div style="padding-top:60pxm">
+      <div class="call-us"
+         style="padding-top:60pxm">
          <sup-title title="联系我们"></sup-title>
          <b-container>
             <b-row sm="8"
@@ -172,7 +173,7 @@ export default {
 .bander-sec {
    padding: 12px 24px 48px;
    p {
-      font-size: 16px;
+      font-size: 14px;
       color: #666;
       line-height: 28px;
       margin-bottom: 0;
@@ -217,6 +218,11 @@ export default {
          border-right: 0 !important;
          border-bottom: 1px solid #e6e6e6;
       }
+   }
+}
+.call-us {
+   /deep/.sup-title {
+      margin: 80px 0 60px 0;
    }
 }
 </style>
