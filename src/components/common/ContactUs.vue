@@ -94,7 +94,7 @@ export default {
             contact: [{
                type: 'string',
                // (/^[0]\d{2}([-]?)\d{8}$|^[0]\d{3}([-]?)\d{7,8}$/).test(mobile) || RegExp(/^1[1234576890]\d{9}$/)
-               pattern: /^(1[1234576890]\d{9) | ([0]\d{2}([-]?)\d{8}$|^[0]\d{3}([-]?)\d{7,8})$/,
+               pattern: /^((0\d{2,3}-\d{7,8})|(1[3456789]\d{9}))$/,
                required: true,
                message: '请填写正确的手机号码',
                transform (value) {
